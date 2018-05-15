@@ -2,34 +2,35 @@
   <div>
       <div class="list_header">
           <h2>NOTES</h2>
-          <button 
-            class="all_notes" 
-            @click="show = 'all'"
-            :class="{active: show === 'all'}">
-            全部笔记
-            </button>
-          <button 
-            class="favorites_notes" 
-            @click="show = 'favorites'"
-            :class="{active: show === 'favorites'}"></button>
-      </div>
-      <div class="node_list">
-          <ul>
-              <li
-                v-for="note in filteredNotes"
-                :class="{active: activeNote == note}"
-                @click="showActiveNote(note)"
-                >
-                <h4>{{note.text.trim().substring(0,20)}}</h4>
-                </li>
-          </ul>
+          <div class="node_list">
+              <ul>
+                  <li
+                    @click="setActiveNote(note)"
+                    v-for="note in filteredNotes">
+                    <h4>{{note.text}}</h4>
+                    </li>
+              </ul>
+          </div>
       </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 export default {
-  
+  computed:{ 
+    ...mapState([
+    'notes'
+    ]),
+    filteredNotes () {
+        return this.notes
+    }
+  },
+  methods:{
+    ...mapMutations([
+      'setActiveNote'
+    ])
+  }
 }
 </script>
 
