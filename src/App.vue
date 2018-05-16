@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <note-control></note-control>
-    <notes-list></notes-list>
+    <div class="left_control">
+      <note-control></note-control>
+      <notes-list></notes-list>
+    </div>
     <note-content></note-content>
   </div>
 </template>
@@ -23,8 +25,19 @@ export default {
 <style>
 @import 'https://use.fontawesome.com/releases/v5.0.9/css/all.css';
 
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  height: 500px;;
+}
+.left_control {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
 }
 </style>

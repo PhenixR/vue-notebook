@@ -1,8 +1,7 @@
 <template>
-  <div>
-      <textarea :value="activeNoteText" class="note_content" @input="editNote">
-        </textarea>
-      
+  <div class="note_content">
+      <textarea :value="activeNoteText" class="text_inpute" @input="editNote">
+      </textarea>
   </div>
 </template>
 
@@ -26,6 +25,20 @@ export default {
 </script>
 
 <style>
+.note_content {
+  width: 100%;
+  height: 100%;
+}
 
+.text_inpute {
+  resize: none;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  border-bottom: none;
+  border-top: none;
+  border-left-width: 2px;
+  outline: none;
+}
 </style>
 

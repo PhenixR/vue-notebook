@@ -20,7 +20,15 @@ const mutations = {
     },
     setActiveNote(state, note) {
         state.activeNote = note
-      }
+    },
+    deleteNote(state) {
+        if(state.notes.length > 0) {
+            let index = state.notes.indexOf(state.activeNote)
+            state.notes.splice(index,1)
+            state.activeNote = state.notes[0]
+        }
+    }
+    
 };
 const actions = {
     editNote({ commit }, e) {
