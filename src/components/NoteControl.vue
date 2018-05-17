@@ -1,20 +1,26 @@
 <template>
   <div class="control_bar">
       <i class="add_note fas fa-plus" @click="addNote"></i>
-      <i class="toggle fas fa-star"></i>
+      <i class="toggle fas fa-star" @click="toggleFavorite" :class="{active:noteFavorite}"></i>
       <i class="delete_note fas fa-trash" @click="deleteNote"></i>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapActions } from 'vuex';
+import { mapMutations, mapActions, mapState, mapGetters } from 'vuex';
 export default {
-  methods:{
+    computed:{
+        ...mapGetters([
+            'noteFavorite'
+        ])
+    },
+    methods:{
       ...mapActions([
-          'addNote'
+          'addNote',
+          'toggleFavorite'
       ]),
       ...mapMutations([
-          'deleteNote'
+          'deleteNote',
       ])
   }
 }
@@ -30,6 +36,9 @@ export default {
 
 i {
     margin: 20px 10px;
+}
+.active{
+    color: yellow;
 }
 </style>
 

@@ -35,7 +35,7 @@ export default {
   height: 500px;;
 }
 .left_control {
-  width: 200px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   align-items:center;
